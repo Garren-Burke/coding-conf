@@ -1,0 +1,418 @@
+/* This file styles the website with colors, fonts, and layouts so it looks nice and clean. */
+
+/* Variables and Root Setup */
+:root {
+    --bg-dark: hsl(248, 70%, 10%);
+    --text-light: hsl(0, 0%, 100%);
+    --text-gray-light: hsl(252, 6%, 83%);
+    --text-gray-dark: hsl(245, 15%, 58%);
+    --accent: hsl(7, 88%, 67%);
+    --accent-hover: hsl(7, 71%, 60%);
+    --border-color: hsl(245, 19%, 35%);
+}
+
+/*  Global Resets */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*  Base Body and Backgrounds */
+body {
+    background-color: var(--bg-dark);
+    background-image: url('../assets/images/background-desktop.png');
+    background-size: cover;
+    background-position: center;
+    color: var(--text-light);
+    font-family: 'Inconsolata', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/pattern-circle.svg');
+    background-repeat: no-repeat;
+    background-position: top left;
+    opacity: 0.15;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Header*/
+.site-header {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: min(100%, 1200px);
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    width: min(140px, 35vw);
+    height: auto;
+}
+
+.site-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.site-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Main Content Layouts */
+main {
+    width: min(100% - 2rem, 600px);
+    margin-inline: auto;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+}
+
+.landing-main {
+    text-align: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, var(--accent), var(--text-light));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.highlight {
+    color: var(--accent);
+    -webkit-text-fill-color: var(--accent);
+}
+
+.event-meta {
+    font-size: 1.1rem;
+    color: var(--text-gray-light);
+    margin-bottom: 1rem;
+}
+
+.event-description {
+    color: var(--text-gray-dark);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+/* Buttons and Links */
+.cta-button, .submit-button {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.85rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inconsolata', monospace;
+    transition: background-color 0.2s ease;
+}
+
+.cta-button:hover, .submit-button:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Forms and Inputs */
+.form-section {
+    width: 100%;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+    text-align: center;
+    color: var(--text-gray-light);
+    margin-bottom: 2rem;
+}
+
+#registrationForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.field-label {
+    font-size: 1rem;
+    color: var(--text-gray-light);
+}
+
+.text-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 0.85rem 1rem;
+    color: var(--text-light);
+    font-family: 'Inconsolata', monospace;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.text-input:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.upload-dropzone {
+    border: 2px dashed var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.upload-dropzone:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.upload-dropzone.loaded {
+    border-color: var(--accent);
+}
+
+.upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    pointer-events: none;
+}
+
+.upload-icon {
+    width: 35px;
+    height: 35px;
+}
+
+.upload-hint {
+    font-size: 0.8rem;
+    color: var(--text-gray-dark);
+}
+
+.text-input.error, .upload-dropzone.error {
+    border-color: var(--accent);
+}
+
+.error-message {
+    font-size: 0.8rem;
+    color: var(--accent);
+    min-height: 1rem;
+}
+
+.submit-button {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Ticket Design */
+.ticket-main {
+    text-align: center;
+}
+
+.ticket-subtext {
+    color: var(--text-gray-light);
+    margin-bottom: 2rem;
+}
+
+.ticket-card {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ticket-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.ticket-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ticket-logo-mark {
+    width: 30px;
+    height: 30px;
+}
+
+.ticket-brand h2 {
+    font-size: 1.2rem;
+}
+
+.ticket-datetime {
+    font-size: 0.8rem;
+    color: var(--text-gray-light);
+}
+
+.ticket-user-info {
+    display: block;
+    overflow: hidden;
+}
+
+.ticket-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    float: left;
+    margin-right: 1rem;
+}
+
+.ticket-details {
+    overflow: hidden;
+}
+
+.ticket-details h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.ticket-github {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-gray-light);
+}
+
+.github-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.ticket-right {
+    border-left: 2px dashed rgba(255, 255, 255, 0.2);
+    padding-left: 1.5rem;
+}
+
+.serial-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-gray-dark);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+/* Accessibility, Focus and Footer */
+:is(a, button, input):focus-visible,
+.upload-dropzone:has(input:focus-visible) {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+a:not([class]) {
+    color: var(--accent);
+}
+
+.site-footer {
+    width: 100%;
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--text-gray-dark);
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Media Queries */
+@media (prefers-reduced-motion: reduce) {
+    .ticket-card {
+        animation: none;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        background-image: url('../assets/images/background-mobile.png');
+    }
+}
+
+@media (max-width: 500px) {
+    .ticket-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .ticket-right {
+        border-left: none;
+        border-top: 2px dashed rgba(255, 255, 255, 0.2);
+        padding-left: 0;
+        padding-top: 1rem;
+        width: 100%;
+    }
+    .serial-number {
+        writing-mode: horizontal-tb;
+        transform: none;
+    }
+}

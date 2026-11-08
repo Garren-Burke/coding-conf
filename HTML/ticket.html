@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- This is the ticket page that shows your generated ticket after you finish registering. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Conf 2026 — Your Ticket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="bg-pattern" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <img src="../assets/images/logo-full.svg" alt="Coding Conf Logo" class="logo">
+        <nav class="site-nav">
+            <a href="index.html">Home</a>
+            <a href="login.html">Register</a>
+        </nav>
+    </header>
+
+    <main class="ticket-main">
+        <section class="ticket-section">
+            <h1 class="ticket-heading">
+                Congrats, <span id="userNameHeading" class="highlight"></span>!<br>
+                Your ticket is ready.
+            </h1>
+            <p class="ticket-subtext">
+                We've emailed your ticket to <span id="userEmailSub" class="highlight"></span> and saved it below.
+            </p>
+
+            <article class="ticket-card">
+                <div class="ticket-left">
+                    <div class="ticket-brand">
+                        <img src="../assets/images/logo-mark.svg" alt="" class="ticket-logo-mark">
+                        <div>
+                            <h2>Coding Conf</h2>
+                            <p class="ticket-datetime">October 26, 2026 / Papine, Kgn</p>
+                        </div>
+                    </div>
+
+                    <div class="ticket-user-info">
+                        <img id="ticketAvatar" class="ticket-avatar">
+                        <div class="ticket-details">
+                            <h3 id="userNameCard"></h3>
+                            <p class="ticket-github">
+                                <img src="../assets/images/icon-github.svg" alt="" class="github-icon">
+                                <span id="userGithubCard"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ticket-right">
+                    <span id="serialNumber" class="serial-number">#00000</span>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Coding Conf. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/ticket.js"></script>
+</body>
+</html>

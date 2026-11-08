@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- This is the registration page where you fill out your info and upload a photo to get your ticket. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Conf 2026 — Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="bg-pattern" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <img src="../assets/images/logo-full.svg" alt="Coding Conf Logo" class="logo">
+        <nav class="site-nav">
+            <a href="index.html">Home</a>
+            <a href="login.html">Register</a>
+        </nav>
+    </header>
+
+    <main class="form-main">
+        <section class="form-section">
+            <h1 class="form-title">Your Journey to <span class="highlight">Coding Conf 2026</span> Starts Here</h1>
+            <p class="form-subtitle">Secure your spot at the biggest tech conference in Papine, Kgn.</p>
+
+            <form id="registrationForm" novalidate>
+                <div class="field-group">
+                    <label for="avatarInput" class="field-label">Upload Avatar</label>
+                    <div class="upload-dropzone" id="dropzone">
+                        <input type="file" id="avatarInput" accept="image/png, image/jpeg" class="sr-only" aria-describedby="avatarError">
+                        <div class="upload-content" id="uploadContent">
+                            <img src="../assets/images/icon-upload.svg" alt="" class="upload-icon">
+                            <p>Click here to browse and upload your photo</p>
+                        </div>
+                    </div>
+                    <small class="upload-hint">Upload your photo (JPG or PNG, max size: 500KB)</small>
+                    <p id="avatarError" class="error-message" aria-live="polite"></p>
+                </div>
+
+                <div class="field-group">
+                    <label for="fullName" class="field-label">Full Name</label>
+                    <input type="text" id="fullName" class="text-input" aria-describedby="nameError" aria-invalid="false">
+                    <p id="nameError" class="error-message" aria-live="polite"></p>
+                </div>
+
+                <div class="field-group">
+                    <label for="email" class="field-label">Email Address</label>
+                    <input type="email" id="email" class="text-input" placeholder="user@domain.com" aria-describedby="emailError" aria-invalid="false">
+                    <p id="emailError" class="error-message" aria-live="polite"></p>
+                </div>
+
+                <div class="field-group">
+                    <label for="github" class="field-label">GitHub Username</label>
+                    <input type="text" id="github" class="text-input" placeholder="@yourusername" aria-describedby="githubError" aria-invalid="false">
+                    <p id="githubError" class="error-message" aria-live="polite"></p>
+                </div>
+
+                <button type="submit" class="submit-button" id="submitBtn">Generate My Ticket</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Coding Conf. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/validation.js"></script>
+</body>
+</html>
